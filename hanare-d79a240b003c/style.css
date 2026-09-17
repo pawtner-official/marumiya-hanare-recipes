@@ -34,7 +34,8 @@ section h2 { font-size:15px; color:var(--muted); margin:16px 0 8px; }
 .photo { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
 .photo.no-photo { aspect-ratio:4/3; font-size:16px; }
 .photo.loading { filter:blur(6px); }
-.camera-overlay { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,.35); color:#fff; font-weight:700; font-size:18px; }
+.camera-overlay { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,.35); color:#fff; font-weight:700; font-size:18px; text-align:center; padding:16px; }
+.camera-overlay.pending { background:rgba(200,65,43,.55); font-size:15px; align-items:flex-end; }
 .detail-body { padding:16px; }
 .detail h1 { font-size:22px; margin:0 0 4px; }
 .cat { color:var(--muted); font-size:13px; margin-bottom:12px; }

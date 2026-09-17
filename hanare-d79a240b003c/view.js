@@ -55,11 +55,11 @@ function ingredientsTable(item, editing) {
   return `<table class="ing">${rows}${addRow}</table>`;
 }
 
-export function renderDetail(item, { editing = false, prev = null, next = null, fullPhoto = null }) {
+export function renderDetail(item, { editing = false, prev = null, next = null, fullPhoto = null, pendingPhoto = false }) {
   // fullPhoto（1200px）が届くまではサムネ（200px）を拡大表示してつなぐ
   const src = fullPhoto || item.photoUrl;
   const photo = src ? `<img class="photo${fullPhoto ? "" : " loading"}" src="${esc(src)}" alt="${esc(item.name)}">` : `<div class="photo no-photo">写真なし</div>`;
-  const camera = editing ? `<label class="camera-overlay">📷 タップして撮影<input type="file" accept="image/*" capture="environment" data-action="photo" hidden></label>` : "";
+  const camera = editing ? `<label class="camera-overlay${pendingPhoto ? " pending" : ""}">${pendingPhoto ? "未保存の写真 — 下の「保存」で確定 / 撮り直しはタップ" : "📷 タップして撮影"}<input type="file" accept="image/*" capture="environment" data-action="photo" hidden></label>` : "";
   const steps = editing
     ? `<textarea data-field="steps" rows="8" placeholder="手順を入力（1行1工程）">${esc(item.steps)}</textarea>`
     : (item.steps?.trim() ? `<ol class="steps">${item.steps.split(/\n+/).filter(Boolean).map(s => `<li>${esc(s)}</li>`).join("")}</ol>` : `<p class="empty">手順は未登録</p>`);

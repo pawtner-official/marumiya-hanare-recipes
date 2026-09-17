@@ -1,4 +1,4 @@
-const CACHE = "hanare-recipes-v1";
+const CACHE = "hanare-recipes-v2";
 const SHELL = ["./", "./index.html", "./style.css", "./app.js", "./view.js", "./data.js", "./image.js", "./config.js", "./manifest.json"];
 self.addEventListener("install", (e) => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", (e) => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });

@@ -8,10 +8,10 @@ export async function compressImage(file, { maxSide = 1200, quality = 0.8 } = {}
   canvas.getContext("2d").drawImage(bmp, 0, 0, w, h);
   return canvas.toDataURL("image/jpeg", quality);
 }
-// 一覧用サムネ（200px・約10KB）と品ページ用（1200px・約250KB）の2枚を作る
+// 一覧用サムネ（480px・約30KB。スマホは170px幅×3倍密度なので200pxだと荒い）と品ページ用（1200px・約250KB）の2枚を作る
 export async function makePhotoPair(file) {
   const [thumb, full] = await Promise.all([
-    compressImage(file, { maxSide: 200, quality: 0.7 }),
+    compressImage(file, { maxSide: 480, quality: 0.75 }),
     compressImage(file, { maxSide: 1200, quality: 0.8 }),
   ]);
   return { thumb, full };

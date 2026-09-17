@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1f2a44">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>離れ レシピ共有</title>
+<link rel="manifest" href="./manifest.json">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#"><span id="store-name"></span> レシピ</a>
+  <button id="edit-btn" class="btn ghost">編集</button>
+</header>
+<input id="search" type="search" placeholder="品名で検索" autocomplete="off">
+<main id="main"><p class="empty">読み込み中…</p></main>
+<div class="busy-overlay">保存中…</div>
+<script type="module" src="./app.js"></script>
+</body>
+</html>
